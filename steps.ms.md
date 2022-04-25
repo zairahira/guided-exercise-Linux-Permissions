@@ -510,12 +510,66 @@ Verify `cat john-file.txt`
 
 
 
+**Step 17: Create another group `project-manager` and assign a member `Fatima` to it**
+
+
+<details>
+<summary> Show hint
+</summary>
+
+Use command `groupadd` to add a new group.
+
+Syntax: `groupadd group-name`
+
+
+Create a new user with command `useradd`.
+Use flag `-G` to assign a user to it.
+
+</details>
+
+<details>
+<summary> Show solution
+</summary>
+
+```
+groupadd project-manager
+useradd -G project-manager Fatima
+passwd Fatima
+```
+
+</details>
 
 
 
 
+**Step 18: Navigate to folder `/home/dev-team` and verify if  `Fatima` can access it**
+
+
+<details>
+<summary> Show hint
+</summary>
+
+Use `cd` to navigate to `/home/dev-team`.
+
+</details>
+
+<details>
+<summary> Show solution
 
 
 
+</summary>
 
+`cd /home/dev-team`.
 
+We get this error:
+
+![img](/img/fatima.png)
+
+This is because, `others` don't have any access to the folder `dev-team`.
+
+If we recall, below are the rights of the `dev-team` folder.
+
+![img](img/recall.png)
+
+</details>
