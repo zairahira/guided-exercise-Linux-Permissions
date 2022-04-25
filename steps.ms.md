@@ -18,7 +18,7 @@ If you do not have `root` access, use the commands with  appending`sudo`.
 
 `sudo - i`
 
-![img](img\step1.PNG)
+![img](img/step1.PNG)
 
 </details>
 
@@ -75,7 +75,7 @@ Where `-G` specifies the group.
 
 Verify: `cat /etc/group | grep dev-team`
 
-![img](img\step3.PNG)
+![img](img/step3.PNG)
 </details>
 
 
@@ -137,7 +137,7 @@ Syntax: `mkdir directory-name`
 
 Verify:
 
-![img](img\correction.png)
+![img](img/correction.png)
 
 
 </details>
@@ -167,7 +167,7 @@ Syntax: `chown :group-name folder`
 
 `chown :dev-team /home/dev-team/`
 
-![img](img\step6.PNG)
+![img](img/step6.PNG)
 
 </details>
 
@@ -196,10 +196,9 @@ Syntax: `chmod permissions folder`
 
 `chmod g+w /home/dev-team/`
 
-![img](img\step7.PNG)
+![img](img/step7.PNG)
 
 </details>
-
 
 
 
@@ -230,7 +229,7 @@ Syntax: `chmod permissions folder`
 `chmod o-rx dev-team `
 
 
-![img](img\correction2.png)
+![img](img/correction2.png)
 
 </details>
 
@@ -352,7 +351,7 @@ Syntax: `chown :group file-name`
 
 Once group ownership is modified, all members of the group can access this file.
 
-![img](img\step10.PNG)
+![img](img/step10.PNG)
 
 </details>
 
@@ -454,7 +453,7 @@ Syntax: `ls -l | grep file-name`
 `ls -l | grep john-file.txt`
 
 
-![img](img\step13.PNG)
+![img](img/step13.PNG)
 
 </details>
 
