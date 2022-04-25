@@ -47,7 +47,7 @@ Enter `groupadd dev-team` to create the `dev-team` group
 
 Verify: `cat /etc/group | grep dev-team`
 
-`<add image here?>`
+![img](img/step3.png)
 
 </details>
 
@@ -81,6 +81,7 @@ Where `-G` specifies the group.
 Verify: `cat /etc/group | grep dev-team`
 
 ![img](img/step3.PNG)
+  
 </details>
 
 
