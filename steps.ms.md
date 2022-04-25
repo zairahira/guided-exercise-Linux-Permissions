@@ -1,31 +1,33 @@
-**Step1: Switch to root user.**
-Sitch to root user so that we have the rights to create new users and groups.
+**Step 1: Switch to root user.**
+Switch to root user so that we have the rights to create new users and groups.
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use the `sudo` command with flag `i`.
 
 If you have the root password, you can login using that as well.
 
-If you do not have `root` access, use the commands with  appending`sudo`.
 </details>
 
 <details>
 <summary> Show solution
 </summary><br>
 
-`sudo - i`
+Enter `sudo -i` to switch to the root user.
+
+Enter `whoami` to find out if you are the root user:
 
 ![img](img/step1.PNG)
+
+If you do not have `root` access, use the commands with appending `sudo`.
 
 </details>
 
 --- 
 
-**Step2: Create a group `dev-team`**
-Sitch to root user so that we have the rights to create new users and groups.
+**Step 2: Create a group `dev-team`**
 
 <details>
 <summary> Show hint
@@ -41,23 +43,26 @@ Syntax: `groupadd group-name`
 <summary> Show solution
 </summary><br>
 
+Enter `groupadd dev-team` to create the `dev-team` group
 
-` groupadd dev-team`
+Verify: `cat /etc/group | grep dev-team`
+
+![img](img/step3.png)
 
 </details>
 
 --- 
 
-**Step3: Create two new users John and Bob and them to group `dev-team`**
+**Step 3: Create two new users John and Bob and add them to the `dev-team` group**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `useradd`.
 
-`useradd` creates a new user and adds to the sepcified group.
+`useradd` creates a new user and adds to the specified group.
 
 Syntax: `useradd -G groupname username`
 
@@ -67,7 +72,7 @@ Where `-G` specifies the group.
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `useradd -G dev-team John`
 
@@ -76,35 +81,36 @@ Where `-G` specifies the group.
 Verify: `cat /etc/group | grep dev-team`
 
 ![img](img/step3.PNG)
+  
 </details>
 
 
 --- 
 
-**Step4:  Provide passwords for users John and Bob**
+**Step 4:  Provide passwords for users John and Bob**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 
 Use command `passwd`
 
 `passwd` creates a password for users.
 
-Syntax: `sudo passwd username`
+Syntax: `passwd username`
 
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
-`sudo passwd John`
+`passwd John`
 
-`sudo passwd Bob`
+`passwd Bob`
 
 </details>
 
@@ -112,12 +118,12 @@ Syntax: `sudo passwd username`
 
 --- 
 
-**Step5: Create a directory in /home and name it `dev-team`**
+**Step 5: Create a directory in /home and name it `dev-team`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 
 Use command `mkdir`
@@ -131,7 +137,7 @@ Syntax: `mkdir directory-name`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `mkdir /home/dev-team`
 
@@ -147,12 +153,12 @@ Verify:
 --- 
 
 
-**Step6: Change the group ownership of the folder `dev-team`  to group `dev-team`**
+**Step 6: Change the group ownership of the folder `dev-team`  to group `dev-team`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `chown`
 
@@ -163,11 +169,11 @@ Syntax: `chown :group-name folder`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `chown :dev-team /home/dev-team/`
 
-![img](img/step6.PNG)
+![img](img/step6.png)
 
 </details>
 
@@ -175,12 +181,12 @@ Syntax: `chown :group-name folder`
 
 --- 
 
-**Step7: Make sure, the permissions of folder `dev-team` allows group members to create and delete files.**
+**Step 7: Make sure, the permissions of folder `dev-team` allows group members to create and delete files.**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `chmod`
 
@@ -192,11 +198,11 @@ Syntax: `chmod permissions folder`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `chmod g+w /home/dev-team/`
 
-![img](img/step7.PNG)
+![img](img/step7.png)
 
 </details>
 
@@ -206,12 +212,12 @@ Syntax: `chmod permissions folder`
 --- 
 
 
-**Step8: Ensure that 'others' don't have any access to the files of `dev-team` folder.**
+**Step 8: Ensure that 'others' don't have any access to the files of `dev-team` folder.**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `chmod`
 
@@ -224,7 +230,7 @@ Syntax: `chmod permissions folder`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `chmod o-rx dev-team `
 
@@ -237,30 +243,30 @@ Syntax: `chmod permissions folder`
 
 --- 
 
-**Step9: Exit the `root` session and switch to `John`**
+**Step 9: Exit the `root` session and switch to `John`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
-Use command `exit` to exit the terminal.
+Use command `exit` to logout of the root user.
 
 Use `su` to switch users.
 
-To confirm current user, use command `whoami`.
-
 Syntax: `su - user`
+
+To confirm current user, use command `whoami`.
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `exit`
 
-`su - John `
+`su - John`
 
 Verify with command `whoami`.
 
@@ -271,25 +277,24 @@ Verify with command `whoami`.
 --- 
 
 
-**Step10: Navigate to folder: `/home/dev-team`**
+**Step 10: Navigate to folder: `/home/dev-team`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `cd` to switch folders.
 
-Confirm current path with `pwd`.
-
 Syntax: `cd /path/to/folder`
 
+Confirm current path with `pwd`.
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `cd /home/dev-team`
 
@@ -300,12 +305,12 @@ Syntax: `cd /path/to/folder`
 --- 
 
 
-**Step11: Create an empty file in the folder: `/home/dev-team`**
+**Step 11: Create an empty file in the folder: `/home/dev-team`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `touch` to create an empty file.
 
@@ -315,10 +320,14 @@ Syntax: `touch filename`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `touch john-file.txt`
 
+Verify: `ls -lrt`
+  
+`<add image>`
+  
 </details>
 
 
@@ -330,12 +339,12 @@ Syntax: `touch filename`
 --- 
 
 
-**Step12:  Change the group ownership of the created file to `dev-team` and verify.**
+**Step 12:  Change the group ownership of the created file to `dev-team` and verify.**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `chown` to change ownership.
 
@@ -345,11 +354,13 @@ Syntax: `chown :group file-name`
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `chown :dev-team john-file.txt`
 
 Once group ownership is modified, all members of the group can access this file.
+
+Verify `ls -lrt`
 
 ![img](img/step10.PNG)
 
@@ -361,32 +372,34 @@ Once group ownership is modified, all members of the group can access this file.
 --- 
 
 
-**Step13:  Exit the shell and switch to user `Bob`**
+**Step 13:  Exit the shell and switch to user `Bob`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `exit` to exit the terminal.
 
 Use `su` to switch users.
 
-To confirm current user, use command `whoami`.
-
 Syntax: `su - user`
+
+To confirm current user, use command `whoami`.
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `exit`
 
-`su - Bob `
+`su - Bob`
 
-Verify the current user with  command `whoami`.
+Verify the current user with command `whoami`.
+
+`<add image?>`
 
 </details>
 
@@ -397,25 +410,26 @@ Verify the current user with  command `whoami`.
 --- 
 
 
-**Step14: Navigate to the path `/home/dev-team`**
+**Step 14: Navigate to the path `/home/dev-team`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `cd` to switch folders.
 
+Syntax: `cd /path/to/folder`
+
 Confirm current path with `pwd`.
 
-Syntax: `cd /path/to/folder`
 
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `cd /home/dev-team`
 
@@ -429,26 +443,27 @@ Syntax: `cd /path/to/folder`
 --- 
 
 
-**Step15: Find out `Bob's` previledges to access `john-file.txt `**
+**Step 15: Find out `Bob's` privileges to access `john-file.txt `**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 
 Use command `ls -l` for long listing.
 
+Syntax: `ls -l | grep file-name`
+
 Does group have `rw-` permissions?
 
-Syntax: `ls -l | grep file-name`
 
 
 </details>
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `ls -l | grep john-file.txt`
 
@@ -462,12 +477,12 @@ Syntax: `ls -l | grep file-name`
 --- 
 
 
-**Step16: Modify the file `john-file.txt ` while logged in as `Bob`**
+**Step 16: Modify the file `john-file.txt ` while logged in as `Bob`**
 
 
 <details>
 <summary> Show hint
-</summary>
+</summary><br>
 
 Use command `echo` to add some text to the file.
 
@@ -479,12 +494,14 @@ This would redirect the quoted text to end of the file.
 
 <details>
 <summary> Show solution
-</summary>
+</summary><br>
 
 `echo "This is Bob's comment" > john-file.txt`
 
 If all the permissions are correctly set, `Bob` would be allowed to edit and save this file. Otherwise you would get an error like this: `Permission denied`.
 
+Verify `cat john-file.txt`
+  
 </details>
 
 
